@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercice 3</title>
+</head>
+<body>
+    <div id="texte"></div>
+    <script>
+
+        let nom;
+        let choix;
+
+        do {
+        nom = prompt("Quel est votre nom ?");
+        choix = confirm("Êtes-vous sûr de vouloir choisir " + nom + " ?");
+        } while (choix != true);
+
+        document.getElementById("texte").innerHTML = "Bienvenue " + nom;
+
+        //OU
+
+        // let nom = prompt("Quel est votre nom ?");
+        // let choix = confirm("Êtes-vous sûr de vouloir choisir " + nom + " ?");
+        // if (choix){
+        //     document.getElementById("texte").innerHTML = "Bienvenue " + nom;
+        // } else {
+        //     do {
+        //         nom = prompt("Quel est votre nom ?");
+        //         choix = confirm("Êtes-vous sûr de vouloir choisir " + nom + " ?");
+        //     } while (!choix);
+        //     document.getElementById("texte").innerHTML = "Bienvenue " + nom;
+        //}
+
+    </script>
+
+    
+</body>
+</html>

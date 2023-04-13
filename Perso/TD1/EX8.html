@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercice 8</title>
+</head>
+<body>
+    <div id="rectangle" onmouseenter="rectangleBleu(this)" onmouseleave="rectangleRouge(this)"></div>
+    <div id="rectangle2" onmouseenter="rectangleRouge(this)" onmouseleave="rectangleBleu(this)"></div>
+
+
+    <script>
+        let rectangle = document.getElementById("rectangle");
+        let rectangle2 = document.getElementById("rectangle2");
+
+        rectangle.style.width = "500px";
+        rectangle.style.height = "300px";
+        rectangle.style.backgroundColor = "red";
+        rectangle.style.top = "0px";
+        rectangle.style.left = "0px";
+        rectangle.style.margin = "2% 0% 0% 35%"
+
+        rectangle2.style.width = "500px";
+        rectangle2.style.height = "300px";
+        rectangle2.style.backgroundColor = "blue";
+        rectangle2.style.top = "0px";
+        rectangle2.style.left = "0px";
+        rectangle2.style.margin = "2% 0% 0% 35%"
+
+        function rectangleBleu(x){
+            x.style.backgroundColor = "blue";
+        }
+
+        function rectangleRouge(x){
+            x.style.backgroundColor = "red";
+        }
+
+    </script>
+
+
+</body>
+</html>
+

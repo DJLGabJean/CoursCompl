@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercice 7</title>
+</head>
+<body>
+    <div id="rectangle" onmouseenter="rectangleBleu()" onmouseleave="rectangleRouge()"></div>
+
+    <script>
+        let rectangle = document.getElementById("rectangle");
+        rectangle.style.width = "500px";
+        rectangle.style.height = "300px";
+        rectangle.style.backgroundColor = "red";
+        rectangle.style.top = "0px";
+        rectangle.style.left = "0px";
+        rectangle.style.margin = "2% 0% 0% 35%"
+
+        function rectangleBleu(){
+            rectangle.style.backgroundColor = "blue";
+        }
+
+        function rectangleRouge(){
+            rectangle.style.backgroundColor = "red";
+        }
+
+    </script>
+
+
+</body>
+</html>
+
+<!-- Afficher un rectangle à l’écran de la couleur de votre choix.
+Quand le curseur de la souris passe dans le rectangle, sa couleur change.
+Quand le curseur quitte le rectangle, il reprend sa couleur initiale. -->*
+
+
+    <!-- <script>
+        let rectangle = document.getElementById("rectangle");
+
+        rectangle.style.width = "100px";
+        rectangle.style.height = "100px";
+        rectangle.style.backgroundColor = "red";
+        rectangle.style.position = "absolute";
+        rectangle.style.top = "0px";
+        rectangle.style.left = "0px";
+
+        function deplacement(event){
+            rectangle.style.top = event.clientY + "px";
+            rectangle.style.left = event.clientX + "px";
+        }
+
+        document.addEventListener("mousemove", deplacement);
+        
+        
+    </script> -->

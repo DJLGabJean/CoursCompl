@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercice 5</title>
+</head>
+<body>
+    <button onclick="triangleTaille5()">5</button>
+    <button onclick="triangleTaille10()">10</button>
+    <button onclick="triangleTaille15()">15</button>
+    <button onclick="triangleEffacer()">Reset</button>
+
+    <div id="texte"></div>
+
+    <script>
+        let texte = document.getElementById("texte");
+
+        function triangleTaille5(){
+            texte.innerHTML = "Triangle de taille 5" + "<br>" + "<br>";
+            for (let i = 0; i < 5; i++){
+                for (let j = 0; j <= i; j++){
+                    texte.innerHTML += "*";
+                }
+                texte.innerHTML += "<br>";
+            }
+        }
+
+        function triangleTaille10(){
+            texte.innerHTML = "Triangle de taille 10" + "<br>" + "<br>";
+            for (let i = 0; i < 10; i++){
+                for (let j = 0; j <= i; j++){
+                    texte.innerHTML += "*";
+                }
+                texte.innerHTML += "<br>";
+            }
+        }
+
+        function triangleTaille15(){
+            texte.innerHTML = "Triangle de taille 15" + "<br>" + "<br>";
+            for (let i = 0; i < 15; i++){
+                for (let j = 0; j <= i; j++){
+                    texte.innerHTML += "*";
+                }
+                texte.innerHTML += "<br>";
+            }
+        }
+
+        function triangleEffacer(){
+            texte.innerHTML = "";
+        }
+
+    </script>
+</body>
+</html>
+

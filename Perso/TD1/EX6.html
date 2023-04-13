@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercice 6</title>
+</head>
+<body>
+    <label for="taille">Taille : 1</label>
+    <input type="range" id="taille" min="0" max="20" onchange="triangleTaille()">
+    <label for="taille">20</label>
+
+    <div id="texte"></div>
+
+    <script>
+        let texte = document.getElementById("texte");
+
+        function triangleTaille(){
+            let taille = document.getElementById("taille").value;
+            texte.innerHTML = "Triangle de taille " + taille + "<br>" + "<br>";
+            for (let i = 0; i < taille; i++){
+                for (let j = 0; j <= i; j++){
+                    texte.innerHTML += "*";
+                }
+                texte.innerHTML += "<br>";
+            }
+        }
+
+    </script>
+</body>
+</html>

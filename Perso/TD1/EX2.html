@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercice 2</title>
+
+</head>
+<body>
+    <div id="texte"></div>
+
+    <script>
+        // On peut utiliser que confirm(), ça marche aussi
+
+        if (window.confirm("Êtes-vous étudiant ?")){
+            document.getElementById("texte").innerHTML = "Vous êtes étudiant";
+        } else {
+            document.getElementById("texte").innerHTML = "Vous n'êtes pas étudiant";
+        }
+    </script>
+    
+</body>
+</html>
+
+
+
+
+
+<!-- Découverte de la fonction prompt().
+1. Demander à l’utilisateur de saisir son nom ;
+2. Demander de confirmer son choix avec la fonction confirm(). La saisir de
+l’utilisateur doit être affichée à l’écran ;
+3.
+a. Si l’utilisateur confirme, on affiche un message de bienvenue contenant
+son nom ;
+b. Si l’utilisateur ne confirme pas, on lui demande de saisir son nom.
+Astuce : utiliser une boucle do - while -->

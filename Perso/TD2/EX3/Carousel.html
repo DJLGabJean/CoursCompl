@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Carousel.css">
+    <title>Carousel de pokémons</title>
+</head>
+<body>
+    <section>
+        <h2>Bienvenue dans la boutique de pokémons!</h2>
+        <div>
+            <img src="Assets/pokemon1.png" alt="grande image" id="grandeImage" onload="changerImage(this.src)">
+        </div>
+        <figure id="miniatures">
+            <img src="Assets/pokemon1.png" alt="mini 1" id="mini1">
+            <img src="Assets/pokemon2.png" alt="mini 2" id="mini2">
+            <img src="Assets/pokemon3.png" alt="mini 3" id="mini3">
+            <img src="Assets/pokemon4.png" alt="mini 4" id="mini4">
+            <img src="Assets/pokemon5.png" alt="mini 5" id="mini5">
+        </figure>
+    </section>
+
+    <script>
+        // let imageAfficher = document.getElementById('grandeImage');
+        let imageCourante = document.getElementById('mini1');
+        let numImagesPrefixe = document.querySelectorAll('figure > img');
+        let numImagesSansPrefixe = [];
+        let x = 0;
+
+    
+        for (let i = 0; i < numImagesPrefixe.length; i++) {
+            let num = numImagesPrefixe[i].id.substring(4);
+            numImagesSansPrefixe.push(num);
+        }
+
+        console.log(numImagesSansPrefixe);
+
+        function changerImage(imageAfficher){
+            console.log(imageAfficher);
+            imageAfficher = imageCourante.src;
+            imageCourante = document.getElementById('mini' + numImagesSansPrefixe[x]);
+            x++;
+            if(x == 6){
+                x = 1;
+            }
+        }
+
+        setInterval(changerImage, 3000);
+
+
+
+        
+    </script>
+
+<!-- var images = ["image1.jpg", "image2.jpg", "image3.jpg"]; // tableau contenant les noms des images
+var index = 0; // index de l'image actuelle
+
+setInterval(function() {
+  index = (index + 1) % images.length; // Incrémenter l'index en boucle
+  document.getElementById("myImage").src = images[index]; // Changer la source de l'image
+}, 3000); // Exécuter toutes les 3 secondes -->
+
+
+<!-- numImagesHTML.forEach(function(numImage) {
+    numImagesJS.push(numImage)
+});
+
+console.log(numImagesHTML, "\n");
+console.log(numImagesJS); -->
+
+
+
+    
+</body>
+</html>

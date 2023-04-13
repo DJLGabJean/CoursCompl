@@ -1,14 +1,89 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="WishCoin.css">
     <title>WishCoin</title>
 </head>
 <body>
+    <header>
+        <img src="Assets/Logo_WishCoin.png" alt="" width="350px" height="80px">
+    </header>
 
-    
+
+    <section>
+        <h3>Chatons de type persan</h3>
+        <p>Mise en ligne par Elodie </p>
+
+        <div>
+            <img src="Assets/img1.jpg" alt="" id="grandeImage" width="400px" height="300px">
+        </div>
+
+        <figure id="fleches">
+            <img src="Assets/left.png" alt="flecheGauche" id="flecheGauche" width="80px" height="80px" onclick="changerImage(this.id)">
+            <img src="Assets/right.png" alt="flecheDroite" id="flecheDroite" width="80px" height="80px" onclick="changerImage(this.id)">
+        </figure>
+
+        <figure id="miniatures">
+            <img src="Assets/img1.jpg" alt="mini 1" id="mini1" width="100px" height="80px">
+            <img src="Assets/img2.jpg" alt="mini 2" id="mini2" width="100px" height="80px">
+            <img src="Assets/img3.jpg" alt="mini 3" id="mini3" width="100px" height="80px">
+        </figure>
+    </section>
+
+    <script>
+        let grandeImage = document.getElementById("grandeImage");
+        let image1 = document.getElementById("mini1");
+        let image2 = document.getElementById("mini2");
+        let image3 = document.getElementById("mini3");
+
+        function changerImage(image){
+            if (image == "flecheGauche"){
+                if (grandeImage.src == image1.src){
+                    grandeImage.src = image3.src;
+                    image3.style.border = "2px solid black"
+                }
+                else if (grandeImage.src == image2.src){
+                    grandeImage.src = image1.src;
+                    image1.style.border = "2px solid black"
+                }
+                else if (grandeImage.src == image3.src){
+                    grandeImage.src = image2.src;
+                    image2.style.border = "2px solid black"
+                }
+            }
+
+            else if (image == "flecheDroite"){
+                if (grandeImage.src == image1.src){
+                    grandeImage.src = image2.src;
+                    image2.style.border = "2px solid black"
+                }
+                else if (grandeImage.src == image2.src){
+                    grandeImage.src = image3.src;
+                    image3.style.border = "2px solid black"
+                }
+                else if (grandeImage.src == image3.src){
+                    grandeImage.src = image1.src;
+                    image1.style.border = "2px solid black"
+                }
+            }
+        }
+
+        // function afficherImage(image){
+        //     if ()
+
+        // }
+
+
+
+
+    </script>
+
+
+
+
     
 </body>
 </html>

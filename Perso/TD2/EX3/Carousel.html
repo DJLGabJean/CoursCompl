@@ -11,7 +11,7 @@
     <section>
         <h2>Bienvenue dans la boutique de pokémons!</h2>
         <div>
-            <img src="Assets/pokemon1.png" alt="grande image" id="grandeImage" onload="changerImage(this.src)">
+            <img src="Assets/pokemon1.png" alt="grande image" id="grandeImage" onload="changerImage()">
         </div>
         <figure id="miniatures">
             <img src="Assets/pokemon1.png" alt="mini 1" id="mini1">
@@ -23,7 +23,7 @@
     </section>
 
     <script>
-        // let imageAfficher = document.getElementById('grandeImage');
+        let imageAfficher = document.getElementById('grandeImage');
         let imageCourante = document.getElementById('mini1');
         let numImagesPrefixe = document.querySelectorAll('figure > img');
         let numImagesSansPrefixe = [];
@@ -31,27 +31,26 @@
 
     
         for (let i = 0; i < numImagesPrefixe.length; i++) {
-            let num = numImagesPrefixe[i].id.substring(4);
+            let num = numImagesPrefixe[i].id.substring();
             numImagesSansPrefixe.push(num);
         }
 
         console.log(numImagesSansPrefixe);
 
-        function changerImage(imageAfficher){
-            console.log(imageAfficher);
-            imageAfficher = imageCourante.src;
-            imageCourante = document.getElementById('mini' + numImagesSansPrefixe[x]);
-            x++;
-            if(x == 6){
-                x = 1;
-            }
+        function changerImage(){
+            setTimeout(function () {
+                imageAfficher.src = imageCourante.src;
+                imageCourante = document.getElementById(numImagesSansPrefixe[x]);
+                x++;
+
+                console.log(imageCourante);
+
+                if (x == numImagesSansPrefixe.length) {
+                    x = 0;
+                }
+            }, 3000);
         }
 
-        setInterval(changerImage, 3000);
-
-
-
-        
     </script>
 
 <!-- var images = ["image1.jpg", "image2.jpg", "image3.jpg"]; // tableau contenant les noms des images

@@ -54,6 +54,9 @@
         const LARGEUR = CADRE.clientWidth;
         const TAILLE =  document.getElementsByTagName('span')[0].clientWidth;
 
+        console.log(LARGEUR);
+        console.log(TAILLE);
+
         const texte = Math.random() < 0.5 ? GAGNE : PERDU;
 
         document.getElementById('texte').innerHTML = texte;

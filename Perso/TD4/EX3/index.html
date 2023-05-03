@@ -84,9 +84,8 @@
 
     <script>
         const url = 'https://geo.api.gouv.fr/departements';
-        const url2 = undefined
+        let url2 = "";
         const departement = document.getElementById('departement');
-        const selectedValue = undefined;
 
         fetch(url)
             .then(function(rep){
@@ -106,12 +105,16 @@
         departement.addEventListener("change", (event) => {
             // Obtient la valeur sélectionnée
             const selectedValue = event.target.value;
-            const url2 = 'https://geo.api.gouv.fr/departements/code/communes'.replace("code", selectedValue);
-            console.log(selectedValue);
+            url2 = 'https://geo.api.gouv.fr/departements/code/communes'.replace("code", selectedValue);
+            console.log(typeof selectedValue);
             console.log(url2);
         });
 
-        
+
+        // Test pour savoir si l'url2 est de type string
+        // if (typeof url2 === 'string'){
+        //     console.log(url2);
+        // }
 
         // fetch(url2)
         //     .then(function(change){

@@ -88,11 +88,6 @@
         const departement = document.getElementById('departement');
         const selectedValue = undefined;
 
-        // Fonction pour remplacer le mot "code" dans l'URL par un code postal
-        function remplacerCodePostal(codePostal) {
-            return url2.replace("code", codePostal);
-        }
-
         fetch(url)
             .then(function(rep){
                 return rep.json();

@@ -189,6 +189,10 @@
                 erreurVille.textContent = "";
             }
 
+            if (nom != "" && prenom != "" && email != "" && departement != "" && ville != ""){
+                formulaire.submit();
+            }
+
         });
 
         // Test pour savoir si l'url2 est de type string

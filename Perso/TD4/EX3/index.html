@@ -87,6 +87,7 @@
         let url2 = "";
         const departement = document.getElementById('departement');
         const ville = document.getElementById('ville');
+        let selectVilleFetched = false;
 
         fetch(url)
             .then(function(rep){
@@ -107,8 +108,8 @@
             // Obtient la valeur sélectionnée
             const selectedValue = event.target.value;
             url2 = 'https://geo.api.gouv.fr/departements/code/communes'.replace("code", selectedValue);
-            console.log(selectedValue);
-            console.log(url2);
+            // console.log(selectedValue);
+            // console.log(url2);
 
             fetch(url2)
                 .then(function(rep){
@@ -116,17 +117,23 @@
                 })
 
                 .then(function(test){
+                    if (selectVilleFetched == true){
+                        while (ville.firstChild){
+                            ville.removeChild(ville.firstChild);
+                            selectVilleFetched = false;
+                        }
+                    }
                     for (let i = 0; i < test.length; i++) {
                         let element = "";
                         let option = document.createElement('option');
                         option.value = test[i].code;
                         option.textContent = element.concat(test[i].nom + " (" + test[i].code + ")");
                         ville.appendChild(option);
+                        selectVilleFetched = true;
                     }
                 });
-
-
         });
+
 
 
         // Test pour savoir si l'url2 est de type string

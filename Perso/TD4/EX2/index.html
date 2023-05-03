@@ -7,14 +7,72 @@
     <title>Exercice 2</title>
 </head>
 <body>
-    
+    <div id="header-fragment"></div>
+    <div id="footer-fragment"></div>
 
+    <p>Cette page fait des requêtes AJAX afin de recupérer le HEADER et le FOOTER</p>
 
+    <button onclick="requeteHeader()">Afficher le header</button>
+    <button onclick="requeteFooter()">Afficher le footer</button>
 
 
     <script>
+        const targetHeader = document.querySelector("#header-fragment");
+        const targetFooter = document.querySelector("#footer-fragment");
+        let headerFetched = false;
+        let footerFetched = false;
 
+        async function requeteHeader() {
+            if (headerFetched){
+                return;
+            }
+            if (footerFetched){
+                while (targetFooter.firstChild){
+                    targetFooter.removeChild(targetFooter.firstChild);
+                    footerFetched = false;
+                }
+            }
 
+            try {
+                const url = "header.html";
+                const reponse = await fetch(url);
+                const text = await reponse.text();
+                const div = document.createElement("div"); 
+                div.innerHTML = text; // On va stocker la variable text dans la div
+                const headerFragment = div.querySelector("#header-fragment"); // On sélectionne la div #header-fragment récupérer dans la variable text
+                targetHeader.appendChild(headerFragment); // On ajoute la div à la div #hader-fragment de la page actuelle 
+                headerFetched = true;
+
+            } catch (e) {
+                alert('Erreur dans la requête AJAX : ' + e);
+            }
+        }
+
+        async function requeteFooter() {
+            if (footerFetched){
+                return;
+            }
+            if (headerFetched){
+                while (targetHeader.firstChild){
+                    targetHeader.removeChild(targetHeader.firstChild);
+                    headerFetched = false;
+                }
+            }
+
+            try {
+                const url = "footer.html";
+                const reponse = await fetch(url);
+                const text = await reponse.text();
+                const div = document.createElement("div");
+                div.innerHTML = text;
+                const footerFragment = div.querySelector("#footer-fragment");
+                targetFooter.appendChild(footerFragment);
+                footerFetched = true;
+
+            } catch (e) {
+                alert('Erreur dans la requête AJAX : ' + e);
+            }
+        }
 
     </script>
     

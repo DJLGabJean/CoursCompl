@@ -88,6 +88,7 @@
         const departement = document.getElementById('departement');
         const ville = document.getElementById('ville');
         let selectVilleFetched = false;
+        const formulaire = document.getElementById('formulaire')
 
         fetch(url)
             .then(function(rep){
@@ -134,7 +135,61 @@
                 });
         });
 
+        formulaire.addEventListener('submit', (event) => {
+            event.preventDefault();
 
+            const nom = document.getElementById('nom').value;
+            const prenom = document.getElementById('prenom').value;
+            const email = document.getElementById('email').value;
+            const departement = document.getElementById('departement').value;
+            const ville = document.getElementById('ville').value;
+            const erreurNom = document.getElementById('erreur-nom');
+            const erreurPrenom = document.getElementById('erreur-prenom');
+            const erreurEmail = document.getElementById('erreur-email');
+            const erreurDepartement = document.getElementById('erreur-departement');
+            const erreurVille = document.getElementById('erreur-ville');
+            const regexNom = /^[a-zA-Z]{2,50}$/
+            const regexPrenom = /^[a-zA-Z]{2,50}$/
+            const regexEmail = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]{2,}\.[a-z]{2,4}$/;
+
+            if (nom == ""){
+                erreurNom.textContent = "Le nom est obligatoire et doit être compris entre 2 et 50 lettres";
+            } else if (regexNom.test(nom) == false){
+                erreurNom.textContent = "Le nom n'est pas valide";
+            }
+            else {
+                erreurNom.textContent = "";
+            }
+            if (prenom == ""){
+                erreurPrenom.textContent = "Le prénom est obligatoire et doit être compris entre 2 et 50 lettres";
+            } else if (regexPrenom.test(prenom) == false){
+                erreurPrenom.textContent = "Le prénom n'est pas valide";
+            }
+            else {
+                erreurPrenom.textContent = "";
+            }
+            if (email == ""){
+                erreurEmail.textContent = "L'email est obligatoire";
+            } else if (regexEmail.test(email) == false){
+                erreurEmail.textContent = "L'email n'est pas valide";
+            }
+            else {
+                erreurEmail.textContent = "";
+            }
+            if (departement == ""){
+                erreurDepartement.textContent = "Le département est obligatoire";
+            }
+            else {
+                erreurDepartement.textContent = "";
+            }
+            if (ville == ""){
+                erreurVille.textContent = "La ville est obligatoire";
+            }
+            else {
+                erreurVille.textContent = "";
+            }
+
+        });
 
         // Test pour savoir si l'url2 est de type string
         // if (typeof url2 === 'string'){

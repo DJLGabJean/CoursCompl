@@ -27,6 +27,11 @@
                 .then(function (html) {
                     alert(html);
                 })
+
+                .catch(function (erreur) {
+                    alert('Abandon :( Erreur dans la requête AJAX : ' + erreur);
+                    return false;
+                });
         }
     </script>
 </body>

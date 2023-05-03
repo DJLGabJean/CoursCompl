@@ -86,6 +86,7 @@
         const url = 'https://geo.api.gouv.fr/departements';
         let url2 = "";
         const departement = document.getElementById('departement');
+        const ville = document.getElementById('ville');
 
         fetch(url)
             .then(function(rep){
@@ -108,6 +109,23 @@
             url2 = 'https://geo.api.gouv.fr/departements/code/communes'.replace("code", selectedValue);
             console.log(selectedValue);
             console.log(url2);
+
+            fetch(url2)
+                .then(function(rep){
+                    return rep.json();
+                })
+
+                .then(function(test){
+                    for (let i = 0; i < test.length; i++) {
+                        let element = "";
+                        let option = document.createElement('option');
+                        option.value = test[i].code;
+                        option.textContent = element.concat(test[i].nom + " (" + test[i].code + ")");
+                        ville.appendChild(option);
+                    }
+                });
+
+
         });
 
 
@@ -115,15 +133,6 @@
         // if (typeof url2 === 'string'){
         //     console.log(url2);
         // }
-
-        // fetch(url2)
-        //     .then(function(change){
-        //         return rep.json();
-        //     })
-
-        //     .then
-
-        // /departements/{code}/communes
 
     </script>
 </body>
